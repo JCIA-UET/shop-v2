@@ -1,3 +1,2 @@
 /target/
-
-/src/main/resources/databaseConfig.properties
+/src/main/resources/hibernate.cfg.xml
