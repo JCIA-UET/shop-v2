@@ -1,6 +1,8 @@
 package uet.jcia.shop.is.entities;
 
 import java.util.Date;
+import java.util.Set;
+
 
 public class Customer {
 	private Integer customerId;
@@ -11,19 +13,26 @@ public class Customer {
 	private String password;
 	private Integer addressId;
 	private Date dateAdded;
+	private Set<Address> addresses;
 	
-	public Customer() {
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    public Customer() {
 		
 	}
 	
-	public Customer(String firstName, String lastName, String email, String telephone, String password,
-			Integer addressId, Date dateAdded) {
+	public Customer(String firstName, String lastName, String email, String telephone, String password, Date dateAdded) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.telephone = telephone;
 		this.password = password;
-		this.addressId = addressId;
 		this.dateAdded = dateAdded;
 	}
 	public Integer getCustomerId() {

@@ -6,6 +6,8 @@ public class Address {
 	private String lastName;
 	private String address;
 	
+	private Customer customer;
+	
 	public Address() {
 		
 	}
@@ -16,7 +18,15 @@ public class Address {
 		this.address = address;
 	}
 	
-	public Integer getAddressId() {
+	public Address(String firstName, String lastName, String address, Customer customer) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.customer = customer;
+    }
+
+    public Integer getAddressId() {
 		return addressId;
 	}
 	public void setAddressId(Integer addressId) {
@@ -40,8 +50,16 @@ public class Address {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	public Customer getCustomer() {
+        return customer;
+    }
 
-	@Override
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    @Override
 	public String toString() {
 		return "Address [getAddressId()=" + getAddressId() + ", getFirstName()=" + getFirstName() + ", getLastName()="
 				+ getLastName() + ", getAddress()=" + getAddress() + "]";
