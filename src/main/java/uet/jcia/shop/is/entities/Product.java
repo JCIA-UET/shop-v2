@@ -1,10 +1,10 @@
 package uet.jcia.shop.is.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Product {
     private Integer productId;
-    private Integer categoryId;
     private Integer quantity;
     private Integer status;
     
@@ -18,38 +18,49 @@ public class Product {
     private Date addedDate;
     private Date modifiedDate;
     
+    private Category category;
+    private Set<Specification> specs;
+    
     public Product() {
     }
 
-    public Product(Integer categoryId, Integer quantity, Integer status, Double price, String name, String description,
-            String model, String image, Date addedDate, Date modifiedDate) {
-        super();
-        this.categoryId = categoryId;
-        this.quantity = quantity;
-        this.status = status;
-        this.price = price;
-        this.name = name;
-        this.description = description;
-        this.model = model;
-        this.image = image;
-        this.addedDate = addedDate;
-        this.modifiedDate = modifiedDate;
-    }
+	public Product(Integer quantity, Integer status, Double price, String name, String description, String model,
+			String image, Date addedDate, Date modifiedDate, Category category) {
+		super();
+		this.quantity = quantity;
+		this.status = status;
+		this.price = price;
+		this.name = name;
+		this.description = description;
+		this.model = model;
+		this.image = image;
+		this.addedDate = addedDate;
+		this.modifiedDate = modifiedDate;
+		this.category = category;
+	}
 
-    public Integer getProductId() {
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Set<Specification> getSpecs() {
+		return specs;
+	}
+
+	public void setSpecs(Set<Specification> specs) {
+		this.specs = specs;
+	}
+
+	public Integer getProductId() {
         return productId;
     }
 
     public void setProductId(Integer productId) {
         this.productId = productId;
-    }
-
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
     }
 
     public Integer getQuantity() {
@@ -126,7 +137,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product [productId=" + productId + ", categoryId=" + categoryId + ", quantity=" + quantity + ", status="
+        return "Product [productId=" + productId + ", quantity=" + quantity + ", status="
                 + status + ", price=" + price + ", name=" + name + ", description=" + description + ", model=" + model
                 + ", image=" + image + ", addedDate=" + addedDate + ", modifiedDate=" + modifiedDate + "]";
     }

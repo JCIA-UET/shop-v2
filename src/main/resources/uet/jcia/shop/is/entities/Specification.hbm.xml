@@ -11,5 +11,9 @@
         <property name="name" type="java.lang.String">
             <column name="NAME" />
         </property>
+        <set name="products" table ="product_to_spec">
+        	<key column="spec_id"/>
+        	<many-to-many column="product_id" class="uet.jcia.shop.is.entities.Product"/>
+        </set>
     </class>
 </hibernate-mapping>

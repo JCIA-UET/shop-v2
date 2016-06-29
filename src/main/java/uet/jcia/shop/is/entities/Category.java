@@ -1,11 +1,23 @@
 package uet.jcia.shop.is.entities;
 
+import java.util.Set;
+
 public class Category {
 	private Integer categoryId;
 	private Integer parentId;
 	private String name;
 	private String description;
 	
+	private Set<Product> products;
+	
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+
 	public Category() {
 		
 	}
@@ -16,6 +28,23 @@ public class Category {
 		this.description = description;
 	}
 	
+	public Category(Integer categoryId, Integer parentId, String name, String description, Set<Product> products) {
+		super();
+		this.categoryId = categoryId;
+		this.parentId = parentId;
+		this.name = name;
+		this.description = description;
+		this.products = products;
+	}
+
+	public Category(Integer parentId, String name, String description, Set<Product> products) {
+		super();
+		this.parentId = parentId;
+		this.name = name;
+		this.description = description;
+		this.products = products;
+	}
+
 	public Integer getCategoryId() {
 		return categoryId;
 	}

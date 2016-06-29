@@ -1,10 +1,27 @@
 package uet.jcia.shop.is.entities;
 
+import java.util.Set;
+
 public class Specification {
     private Integer specId;
     private String name;
+    private Set<Product> products;
     
-    public Specification(String name) {
+    public Specification(String name, Set<Product> products) {
+		super();
+		this.name = name;
+		this.products = products;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+
+	public Specification(String name) {
         super();
         this.name = name;
     }

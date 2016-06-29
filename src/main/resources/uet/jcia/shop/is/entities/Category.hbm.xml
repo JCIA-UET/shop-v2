@@ -17,5 +17,10 @@
         <property name="description" type="java.lang.String">
             <column name="DESCRIPTION" />
         </property>
+        
+        <set name="products" table="product" inverse="true">
+        	<key column="category_id"/>
+        	<one-to-many class="uet.jcia.shop.is.entities.Product"/>
+        </set>
     </class>
 </hibernate-mapping>
