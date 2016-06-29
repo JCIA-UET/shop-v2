@@ -2,23 +2,22 @@ package uet.jcia.shop.is.entities;
 
 public class OrderItem {
 	private Integer orderItemId;
-	private Integer orderId;
-	private Integer productId;
 	private String name;
 	private String model;
 	private Integer quantity;
 	private Double price;
 	private Double total;
 	
+	private Order order;
+	private Product product;
+	
 	public OrderItem() {
 		
 	}
 	
-	public OrderItem(Integer orderId, Integer productId, String name, String model, Integer quantity, Double price,
+	public OrderItem(String name, String model, Integer quantity, Double price,
 			Double total) {
 		super();
-		this.orderId = orderId;
-		this.productId = productId;
 		this.name = name;
 		this.model = model;
 		this.quantity = quantity;
@@ -30,18 +29,6 @@ public class OrderItem {
 	}
 	public void setOrderItemId(Integer orderItemId) {
 		this.orderItemId = orderItemId;
-	}
-	public Integer getOrderId() {
-		return orderId;
-	}
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
-	}
-	public Integer getProductId() {
-		return productId;
-	}
-	public void setProductId(Integer productId) {
-		this.productId = productId;
 	}
 	public String getName() {
 		return name;
@@ -73,10 +60,27 @@ public class OrderItem {
 	public void setTotal(Double total) {
 		this.total = total;
 	}
+	
+	public Order getOrder() {
+        return order;
+    }
+	
+	public void setOrder(Order order) {
+        this.order = order;
+    }
+	
+	public Product getProduct() {
+        return product;
+    }
+	
+	public void setProduct(Product product) {
+        this.product = product;
+    }
+	
 	@Override
 	public String toString() {
-		return "OrderItem [getOrderItemId()=" + getOrderItemId() + ", getOrderId()=" + getOrderId()
-				+ ", getProductId()=" + getProductId() + ", getName()=" + getName() + ", getModel()=" + getModel()
+		return "OrderItem [getOrderItemId()=" + getOrderItemId()
+				+ ", getName()=" + getName() + ", getModel()=" + getModel()
 				+ ", getQuantity()=" + getQuantity() + ", getPrice()=" + getPrice() + ", getTotal()=" + getTotal()
 				+ "]";
 	}

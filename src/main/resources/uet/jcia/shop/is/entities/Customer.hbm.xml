@@ -34,5 +34,10 @@
             <key column="customer_id"/>
             <many-to-many column="address_id" class="uet.jcia.shop.is.entities.Address" unique="true"/>
         </set>
+        
+        <set name="orders">
+            <key column="customer_id"/>
+            <one-to-many class="uet.jcia.shop.is.entities.Order"/>
+        </set>
     </class>
 </hibernate-mapping>

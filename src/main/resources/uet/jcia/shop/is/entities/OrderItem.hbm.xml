@@ -6,7 +6,7 @@
     <class name="uet.jcia.shop.is.entities.OrderItem" table="ORDERITEM">
         <id name="orderItemId" type="java.lang.Integer">
             <column name="ORDER_ITEM_ID" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="orderId" type="java.lang.Integer">
             <column name="ORDER_ID" />
@@ -29,5 +29,12 @@
         <property name="total" type="java.lang.Double">
             <column name="TOTAL" />
         </property>
+        
+        <many-to-one name="order" class="uet.jcia.shop.is.entities.Order">
+            <column name="order_id" not-null="true"/>
+        </many-to-one>
+        
+        <one-to-one name="product" class="uet.jcia.shop.entities.Product"/>
+        
     </class>
 </hibernate-mapping>

@@ -6,7 +6,7 @@
     <class name="uet.jcia.shop.is.entities.Order" table="ORDER">
         <id name="orderId" type="java.lang.Integer">
             <column name="ORDER_ID" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="customerId" type="java.lang.Integer">
             <column name="CUSTOMER_ID" />
@@ -38,5 +38,15 @@
         <property name="dateModified" type="java.util.Date">
             <column name="DATE_MODIFIED" />
         </property>
+        
+        <set name="orderItems" inverse="true">
+            <key column="order_id"/>
+            <one-to-many class="uet.jcia.shop.is.entities.OrderItem"/>
+        </set>
+        
+        <many-to-one name="customer" class="uet.jcia.shop.is.entities.Customer">
+            <column name="customer_id" not-null="true"></column>
+        </many-to-one>
+        
     </class>
 </hibernate-mapping>
