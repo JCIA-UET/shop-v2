@@ -35,6 +35,7 @@
         <property name="modifiedDate" type="java.util.Date">
             <column name="DATE_MODIFIED" />
         </property>
+        
         <set name="specs" table ="product_to_spec">
         	<key column="product_id"/>
         	<many-to-many column="spec_id" class="uet.jcia.shop.is.entities.Specification"/>

@@ -25,6 +25,20 @@ public class Product {
     }
 
 	public Product(Integer quantity, Integer status, Double price, String name, String description, String model,
+            String image, Date addedDate, Date modifiedDate) {
+        super();
+        this.quantity = quantity;
+        this.status = status;
+        this.price = price;
+        this.name = name;
+        this.description = description;
+        this.model = model;
+        this.image = image;
+        this.addedDate = addedDate;
+        this.modifiedDate = modifiedDate;
+    }
+
+    public Product(Integer quantity, Integer status, Double price, String name, String description, String model,
 			String image, Date addedDate, Date modifiedDate, Category category) {
 		super();
 		this.quantity = quantity;

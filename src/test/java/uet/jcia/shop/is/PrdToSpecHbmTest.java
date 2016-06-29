@@ -24,6 +24,7 @@ public class PrdToSpecHbmTest {
 //        specs.add(new Specification("Bao hanh"));
         
         Category cate = new Category(0,"dien thoai", "dien thoat cate");
+        cate.setCategoryId(1);
         Product product = new Product(
         		10, 1, 100.0, "Apple", "dien thoai", "model1", "image", new Date(), new Date(), cate);
 
@@ -31,7 +32,22 @@ public class PrdToSpecHbmTest {
         products.add(product);
         cate.setProducts(products);
         
-        session.save(cate);
+//        session.save(cate);
+        
+        Specification spec1 = new Specification("Nha San Xuat");
+        Specification spec2 = new Specification("Kich thuoc");
+        Specification spec3 = new Specification("Trong luong");
+        Set<Specification> specs = new HashSet<>();
+        specs.add(spec1);
+        session.save(spec1);
+        specs.add(spec2);
+        session.save(spec2);
+        specs.add(spec3);
+        session.save(spec3);
+        
+        product.setSpecs(specs);
+        
+        session.save(product);
         
         transaction.commit();
         session.close();
