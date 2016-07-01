@@ -6,7 +6,7 @@
     <class name="uet.jcia.shop.is.entities.Customer" table="CUSTOMER">
         <id name="customerId" type="java.lang.Integer">
             <column name="CUSTOMER_ID" />
-            <generator class="native" />
+            <generator class="increment" />
         </id>
         <property name="firstName" type="java.lang.String">
             <column name="FIRSTNAME" />
@@ -31,7 +31,7 @@
         </property>
         
         <set name="addresses" table="Customer_To_Address" cascade="all">
-            <key column="customer_id"/>
+            <key column="customer_id" not-null="true"/>
             <many-to-many column="address_id" class="uet.jcia.shop.is.entities.Address" unique="true"/>
         </set>
         

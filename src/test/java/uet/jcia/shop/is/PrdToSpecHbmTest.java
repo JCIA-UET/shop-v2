@@ -15,15 +15,14 @@ import uet.jcia.shop.is.entities.Specification;
 public class PrdToSpecHbmTest {
 
     public static void main(String[] args) {
-        SessionFactory factory = HibernateUtils.getSessionFactory();
+        SessionFactory factory = HibernateUtils.buildSessionFactory();
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
         
-//        Set<Specification> specs = new HashSet<>();
-//        specs.add(new Specification("Nha san xuat"));
-//        specs.add(new Specification("Bao hanh"));
-        
         Category cate = new Category(0,"dien thoai", "dien thoat cate");
+        
+        session.save(cate);
+        
         cate.setCategoryId(1);
         Product product = new Product(
         		10, 1, 100.0, "Apple", "dien thoai", "model1", "image", new Date(), new Date(), cate);
@@ -51,6 +50,6 @@ public class PrdToSpecHbmTest {
         
         transaction.commit();
         session.close();
-        HibernateUtils.shutdown();;
+        HibernateUtils.closeSessionFactory();
     }
 }

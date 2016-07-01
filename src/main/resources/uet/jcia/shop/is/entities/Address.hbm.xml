@@ -6,7 +6,7 @@
     <class name="uet.jcia.shop.is.entities.Address" table="ADDRESS">
         <id name="addressId" type="java.lang.Integer">
             <column name="ADDRESS_ID" />
-            <generator class="native" />
+            <generator class="increment" />
         </id>
         <property name="firstName" type="java.lang.String">
             <column name="FIRSTNAME" />
@@ -18,7 +18,7 @@
             <column name="ADDRESS" />
         </property>
         
-        <join table="Customer_To_Address" optional="true">
+        <join table="Customer_To_Address" inverse="true">
             <key column="address_id" unique="true"/>
             <many-to-one name="customer" column="customer_id" not-null="true"/>
         </join>

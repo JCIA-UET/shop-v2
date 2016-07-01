@@ -12,10 +12,10 @@ import uet.jcia.shop.is.entities.Address;
 import uet.jcia.shop.is.entities.Category;
 import uet.jcia.shop.is.entities.Customer;
 
-public class TestHibernate {
+public class CustomerToAddress {
 
     public static void main(String[] args) {
-        SessionFactory factory = HibernateUtils.getSessionFactory();
+        SessionFactory factory = HibernateUtils.buildSessionFactory();
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
         
@@ -34,14 +34,9 @@ public class TestHibernate {
         customer.setAddresses(addresses);
         
         session.save(customer);
-//        session.save(add1);
-        
-        
-//        Category category = new Category(0, "laptop", "may tinh xach tay");
-//        session.save(category);
         
         transaction.commit();
         session.close();
-        HibernateUtils.shutdown();;
+        HibernateUtils.closeSessionFactory();
     }
 }
