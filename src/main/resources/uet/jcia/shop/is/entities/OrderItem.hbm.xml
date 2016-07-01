@@ -8,12 +8,6 @@
             <column name="ORDER_ITEM_ID" />
             <generator class="increment" />
         </id>
-        <property name="orderId" type="java.lang.Integer">
-            <column name="ORDER_ID" />
-        </property>
-        <property name="productId" type="java.lang.Integer">
-            <column name="PRODUCT_ID" />
-        </property>
         <property name="name" type="java.lang.String">
             <column name="NAME" />
         </property>
@@ -34,7 +28,11 @@
             <column name="order_id" not-null="true"/>
         </many-to-one>
         
-        <one-to-one name="product" class="uet.jcia.shop.entities.Product"/>
+        <many-to-one name="product" class="uet.jcia.shop.is.entities.Product">
+            <column name="product_id" not-null="true"/>
+        </many-to-one>
+        
+       
         
     </class>
 </hibernate-mapping>

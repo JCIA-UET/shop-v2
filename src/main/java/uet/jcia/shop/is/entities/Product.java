@@ -20,8 +20,17 @@ public class Product {
     
     private Category category;
     private Set<Specification> specs;
+    private Set<OrderItem> orderItems;
     
-    public Product() {
+    public Set<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(Set<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	public Product() {
     }
 
 	public Product(Integer quantity, Integer status, Double price, String name, String description, String model,

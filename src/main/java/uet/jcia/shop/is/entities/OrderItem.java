@@ -10,7 +10,6 @@ public class OrderItem {
 	
 	private Order order;
 	private Product product;
-	
 	public OrderItem() {
 		
 	}

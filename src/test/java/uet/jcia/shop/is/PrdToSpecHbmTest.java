@@ -15,7 +15,7 @@ import uet.jcia.shop.is.entities.Specification;
 public class PrdToSpecHbmTest {
 
     public static void main(String[] args) {
-        SessionFactory factory = HibernateUtils.buildSessionFactory();
+        SessionFactory factory = HibernateUtils.getSessionFactory();
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
         
@@ -51,6 +51,6 @@ public class PrdToSpecHbmTest {
         
         transaction.commit();
         session.close();
-        HibernateUtils.closeSessionFactory();
+        HibernateUtils.shutdown();;
     }
 }

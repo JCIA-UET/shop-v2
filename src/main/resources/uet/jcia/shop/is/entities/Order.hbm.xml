@@ -8,9 +8,6 @@
             <column name="ORDER_ID" />
             <generator class="increment" />
         </id>
-        <property name="customerId" type="java.lang.Integer">
-            <column name="CUSTOMER_ID" />
-        </property>
         <property name="firstName" type="java.lang.String">
             <column name="FIRSTNAME" />
         </property>
@@ -39,7 +36,7 @@
             <column name="DATE_MODIFIED" />
         </property>
         
-        <set name="orderItems" inverse="true">
+        <set name="orderItems" inverse="true" cascade="all">
             <key column="order_id"/>
             <one-to-many class="uet.jcia.shop.is.entities.OrderItem"/>
         </set>

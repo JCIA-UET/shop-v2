@@ -15,7 +15,7 @@ import uet.jcia.shop.is.entities.Customer;
 public class TestHibernate {
 
     public static void main(String[] args) {
-        SessionFactory factory = HibernateUtils.buildSessionFactory();
+        SessionFactory factory = HibernateUtils.getSessionFactory();
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
         
@@ -42,6 +42,6 @@ public class TestHibernate {
         
         transaction.commit();
         session.close();
-        HibernateUtils.closeSessionFactory();
+        HibernateUtils.shutdown();;
     }
 }

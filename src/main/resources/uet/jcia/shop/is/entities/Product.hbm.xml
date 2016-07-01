@@ -44,5 +44,10 @@
         <many-to-one name="category" class="uet.jcia.shop.is.entities.Category">
         	<column name="category_id" not-null="true"/>
         </many-to-one>
+        
+        <set name="orderItems" inverse="true" cascade="all">
+        	<key column="product_id" not-null="true"></key>
+  			<one-to-many class="uet.jcia.shop.is.entities.OrderItem"/>
+        </set>
     </class>
 </hibernate-mapping>
