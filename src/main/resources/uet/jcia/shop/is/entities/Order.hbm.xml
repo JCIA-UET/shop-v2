@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 29, 2016 8:59:18 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="uet.jcia.shop.is.entities.Order" table="ORDER">
+    <class name="uet.jcia.shop.is.entities.Order" table="`ORDER`">
         <id name="orderId" type="java.lang.Integer">
             <column name="ORDER_ID" />
             <generator class="increment" />
@@ -37,12 +37,12 @@
         </property>
         
         <set name="orderItems" inverse="true" cascade="all">
-            <key column="order_id"/>
+            <key column="order_id" not-null="true"/>
             <one-to-many class="uet.jcia.shop.is.entities.OrderItem"/>
         </set>
         
         <many-to-one name="customer" class="uet.jcia.shop.is.entities.Customer">
-            <column name="customer_id" not-null="true"></column>
+            <column name="customer_id" not-null="true"/>
         </many-to-one>
         
     </class>

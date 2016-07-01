@@ -22,7 +22,22 @@ public class Order {
 		
 	}
 	
-	public Order(String firstName, String lastName, String telephone, String address,
+	public Order(String firstName, String lastName, String telephone, String address, String comment, Integer status,
+            Double total, Date dateAdded, Date dateModified, Customer customer) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephone = telephone;
+        this.address = address;
+        this.comment = comment;
+        this.status = status;
+        this.total = total;
+        this.dateAdded = dateAdded;
+        this.dateModified = dateModified;
+        this.customer = customer;
+    }
+
+    public Order(String firstName, String lastName, String telephone, String address,
 			String comment, Integer status, Double total, Date dateAdded, Date dateModified) {
 		this.firstName = firstName;
 		this.lastName = lastName;

@@ -14,7 +14,19 @@ public class OrderItem {
 		
 	}
 	
-	public OrderItem(String name, String model, Integer quantity, Double price,
+	public OrderItem(String name, String model, Integer quantity, Double price, Double total, Order order,
+            Product product) {
+        super();
+        this.name = name;
+        this.model = model;
+        this.quantity = quantity;
+        this.price = price;
+        this.total = total;
+        this.order = order;
+        this.product = product;
+    }
+
+    public OrderItem(String name, String model, Integer quantity, Double price,
 			Double total) {
 		super();
 		this.name = name;

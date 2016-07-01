@@ -46,7 +46,7 @@
         </many-to-one>
         
         <set name="orderItems" inverse="true" cascade="all">
-        	<key column="product_id" not-null="true"></key>
+        	<key column="product_id" not-null="true"/>
   			<one-to-many class="uet.jcia.shop.is.entities.OrderItem"/>
         </set>
     </class>

@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jun 29, 2016 8:58:41 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="uet.jcia.shop.is.entities.OrderItem" table="ORDERITEM">
+    <class name="uet.jcia.shop.is.entities.OrderItem" table="ORDER_ITEM">
         <id name="orderItemId" type="java.lang.Integer">
             <column name="ORDER_ITEM_ID" />
             <generator class="increment" />
