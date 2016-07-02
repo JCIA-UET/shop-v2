@@ -32,27 +32,33 @@ public class TestOrder {
         Query pQuery = session.createQuery(pSql);
         pQuery.setParameter("id", 1);
         
+        String oSql = "select o from " + Order.class.getName() +
+                " o";
+        Query oQuery = session.createQuery(oSql);
+        
         Customer customer = (Customer) cQuery.getSingleResult();
         Product product = (Product) pQuery.getSingleResult();
         
-        Order order = new Order(
-                customer.getFirstName(), customer.getLastName(), customer.getTelephone(),
-                "this is address", "This is the comment", 1, 0.0,
-                new Date(), new Date(), customer);
+        System.out.println(oQuery.list());
         
-        int quantity = 2;
-        double price = 1300000.0;
-        OrderItem orderItem = new OrderItem(
-                "item laptop", "model1", 
-                quantity, price, quantity * price, order, product);
-        
-        Set<OrderItem> orderItemsSet = new HashSet<>();
-        orderItemsSet.add(orderItem);
-        
-        
-        session.save(order);
-        
-        session.save(orderItem);
+//        Order order = new Order(
+//                customer.getFirstName(), customer.getLastName(), customer.getTelephone(),
+//                "this is address", "This is the comment", 1, 0.0,
+//                new Date(), new Date(), customer);
+//        
+//        int quantity = 2;
+//        double price = 1300000.0;
+//        OrderItem orderItem = new OrderItem(
+//                "item laptop", "model1", 
+//                quantity, price, quantity * price, order, product);
+//        
+//        Set<OrderItem> orderItemsSet = new HashSet<>();
+//        orderItemsSet.add(orderItem);
+//        
+//        
+//        session.save(order);
+//        
+//        session.save(orderItem);
         
         tran.commit();
         session.close();
