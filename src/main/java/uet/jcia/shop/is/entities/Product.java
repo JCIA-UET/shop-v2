@@ -19,7 +19,7 @@ public class Product {
     private Date modifiedDate;
     
     private Category category;
-    private Set<Specification> specs;
+    private Set<ProductSpecification> productSpecs;
     private Set<OrderItem> orderItems;
     
     public Set<OrderItem> getOrderItems() {
@@ -70,12 +70,12 @@ public class Product {
 		this.category = category;
 	}
 
-	public Set<Specification> getSpecs() {
-		return specs;
+	public Set<ProductSpecification> getProductSpecs() {
+		return productSpecs;
 	}
 
-	public void setSpecs(Set<Specification> specs) {
-		this.specs = specs;
+	public void setProductSpecs(Set<ProductSpecification> specs) {
+		this.productSpecs = specs;
 	}
 
 	public Integer getProductId() {

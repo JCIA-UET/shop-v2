@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import uet.jcia.shop.is.entities.Product;
+import uet.jcia.shop.is.entities.ProductSpecification;
 import uet.jcia.shop.is.entities.Category;
 import uet.jcia.shop.is.entities.Specification;
 
@@ -19,34 +20,24 @@ public class PrdToSpecHbmTest {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
         
-        Category cate = new Category(0,"dien thoai", "dien thoat cate");
+        ProductDAO pDao = new ProductDAOImpl();
+        SpecificationDAO sDao = new SpecificationDAOImpl();
         
-        session.save(cate);
+        Product p = new Product();
+        p.setProductId(1);
+        p = pDao.getProduct(p);
         
-        cate.setCategoryId(1);
-        Product product = new Product(
-        		10, 1, 100.0, "Apple", "dien thoai", "model1", "image", new Date(), new Date(), cate);
-
-        Set<Product> products = new HashSet<>();
-        products.add(product);
-        cate.setProducts(products);
+        Specification s = new Specification();
+        s.setSpecId(1);
+        s = sDao.getSpec(s);
         
-//        session.save(cate);
+        ProductSpecification ps = new ProductSpecification();
+        ps.setProduct(p);
+        ps.setSpec(s);
+        ps.setSpecName(s.getName());
+        ps.setValue("NULL-Company");
         
-        Specification spec1 = new Specification("Nha San Xuat");
-        Specification spec2 = new Specification("Kich thuoc");
-        Specification spec3 = new Specification("Trong luong");
-        Set<Specification> specs = new HashSet<>();
-        specs.add(spec1);
-        session.save(spec1);
-        specs.add(spec2);
-        session.save(spec2);
-        specs.add(spec3);
-        session.save(spec3);
-        
-        product.setSpecs(specs);
-        
-        session.save(product);
+        session.save(ps);
         
         transaction.commit();
         session.close();

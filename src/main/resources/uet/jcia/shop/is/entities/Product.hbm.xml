@@ -36,9 +36,9 @@
             <column name="DATE_MODIFIED" />
         </property>
         
-        <set name="specs" table ="product_to_spec">
+        <set name="productSpecs" inverse="true">
         	<key column="product_id"/>
-        	<many-to-many column="spec_id" class="uet.jcia.shop.is.entities.Specification"/>
+        	<one-to-many class="uet.jcia.shop.is.entities.ProductSpecification"/>
         </set>
         
         <many-to-one name="category" class="uet.jcia.shop.is.entities.Category">

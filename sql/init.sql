@@ -189,6 +189,11 @@ CREATE TABLE IF NOT EXISTS `shop`.`product_to_spec` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
+alter table shop.product_to_spec
+add column product_spec_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+
+alter table shop.product_to_spec
+add column spec_name VARCHAR(255);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
