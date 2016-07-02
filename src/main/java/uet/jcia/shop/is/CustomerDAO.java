@@ -8,7 +8,9 @@ public interface CustomerDAO {
 	List<Customer> getAllCustomer();
 	Customer getCustomerById(Integer customerId);
 	Customer getCustomerByEmail(String email);
-	//boolean setDefaultAddress(Customer customer, Address address);
+	Address getDefaultAddress(Customer customer);
+	boolean setDefaultAddress(Customer customer, Address address);
+	List<Address> getListAddresses(Customer customer);
 	boolean addNewCustomer(Customer customer);
 	boolean deleteCustomer(Customer customer);
 	boolean updateCustomer(Customer customer);

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
@@ -77,9 +76,11 @@ public class CategoryDAOImpl implements CategoryDAO {
         try {
             Category c = session.load(Category.class, updatedCategory.getCategoryId());
             
-            c = updatedCategory;
-            session.update(c);
+            c.setParentId(updatedCategory.getParentId());
+            c.setName(updatedCategory.getName());
+            c.setDescription(updatedCategory.getDescription());
             
+            session.update(c);
             tx.commit();
             return true;
             
